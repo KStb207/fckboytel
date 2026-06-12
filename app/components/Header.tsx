@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Header() {
   return (
     <header className="sticky top-0 z-50" style={{ backgroundColor: '#2F4F4F' }}>
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center hover:opacity-80 transition">
           <Image
@@ -12,19 +12,19 @@ export default function Header() {
             alt="FckBoyTel Logo"
             width={40}
             height={40}
-            className="h-10 w-auto"
+            className="h-8 md:h-10 w-auto"
           />
         </Link>
 
         {/* Navigation */}
-        <nav className="flex gap-8">
-          <Link href="/produkte" className="text-white font-bold uppercase tracking-widest text-sm hover:opacity-80 transition">
+        <nav className="flex gap-3 md:gap-8">
+          <Link href="/produkte" className="text-white font-bold uppercase tracking-widest text-xs md:text-sm hover:opacity-80 transition">
             Produkte
           </Link>
-          <Link href="/blog" className="text-white font-bold uppercase tracking-widest text-sm hover:opacity-80 transition">
+          <Link href="/blog" className="text-white font-bold uppercase tracking-widest text-xs md:text-sm hover:opacity-80 transition">
             Blog
           </Link>
-          <Link href="/ueber-uns" className="text-white font-bold uppercase tracking-widest text-sm hover:opacity-80 transition">
+          <Link href="/ueber-uns" className="text-white font-bold uppercase tracking-widest text-xs md:text-sm hover:opacity-80 transition">
             Über uns
           </Link>
         </nav>
