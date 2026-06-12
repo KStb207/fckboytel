@@ -1,6 +1,9 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import NewsletterForm from '@/components/NewsletterForm';
+import { getAllProducts } from '@/lib/products';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'FckBoyTel - Der Kulturbeutel für Männer mit Plan',
@@ -8,14 +11,29 @@ export const metadata = {
 };
 
 export default function Home() {
+  const allProducts = getAllProducts();
+  
+  // Zwei zufällige Produkte
+  const randomProducts = allProducts
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 2);
+
   return (
     <>
       <Header />
       
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white py-32 px-6 text-center border-b-4 border-gray-700">
-          <div className="max-w-4xl mx-auto">
+        <section 
+          className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white py-32 px-6 text-center border-b-4 border-gray-700 relative overflow-hidden"
+          style={{
+            backgroundImage: 'url(/images/startseite_hintergrund.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundBlendMode: 'overlay',
+          }}
+        >
+          <div className="max-w-4xl mx-auto relative z-10">
             <div className="mb-12">
               <div className="text-7xl font-bold tracking-tight mb-4 uppercase" style={{ letterSpacing: '-2px' }}>
                 FckBoyTel
@@ -32,9 +50,11 @@ export default function Home() {
             </p>
 
             <div className="flex gap-4 justify-center flex-wrap">
-              <button className="bg-white text-gray-900 px-10 py-4 font-bold text-base hover:bg-gray-100 transition uppercase tracking-widest">
-                Zum Shop
-              </button>
+              <Link href="/produkte">
+                <button className="bg-white text-gray-900 px-10 py-4 font-bold text-base hover:bg-gray-100 transition uppercase tracking-widest">
+                  Zum Shop
+                </button>
+              </Link>
               <button className="border-2 border-white text-white px-10 py-4 font-bold text-base hover:bg-white hover:text-gray-900 transition uppercase tracking-widest">
                 Details
               </button>
@@ -42,77 +62,86 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Product Features */}
-        <section className="py-24 px-6 bg-gray-50">
+       {/* Das sind wir - Fckboys */}
+        <section className="py-24 px-6 text-white" style={{ backgroundColor: '#2F4F4F' }}>
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-16 text-gray-900 uppercase" style={{ letterSpacing: '-1px' }}>
-              Was ist drin
+            <h2 className="text-4xl font-bold text-center mb-16 text-white uppercase" style={{ letterSpacing: '-1px' }}>
+              Das sind wir - Fckboys
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                { name: 'Zahnbürste', desc: 'Frischer Atem. Kein Kompromiss.' },
-                { name: 'Deo', desc: 'Für jede Situation gerüstet.' },
-                { name: 'Labello', desc: 'Gepflegte Lippen, immer.' },
-                { name: 'Feuerzeug', desc: 'Klassisch. Unverzichtbar.' },
-                { name: 'Premium-Beutel', desc: 'Anthrazit. Hochwertig.' },
-                { name: 'Humor', desc: 'Das Wichtigste im Paket.' },
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white p-8 border-l-4 border-gray-700 hover:border-gray-900 transition duration-300"
-                >
-                  <div className="text-2xl font-bold text-gray-900 mb-3 uppercase tracking-wider">{item.name}</div>
-                  <p className="text-gray-600 leading-relaxed font-light">{item.desc}</p>
-                </div>
-              ))}
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-lg text-gray-100 leading-relaxed font-light mb-8">
+                Wir sind eine Bewegung für Männer mit Plan. Keine Ausreden. Keine Improvisation. 
+                Alles, was du brauchst, im Kulturbeutel. Wir stehen für Qualität, Humor und einen gewissen Swagger.
+              </p>
+              <p className="text-gray-300 leading-relaxed font-light">
+                FckBoyTel ist mehr als nur ein Beutel – es ist eine Einstellung. Sei vorbereitet. 
+                Sei selbstbewusst. Sei ein Fckboy.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Variants */}
+        {/* Featured Products */}
         <section className="py-24 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-16 text-gray-900 uppercase" style={{ letterSpacing: '-1px' }}>
-              Zwei Varianten
+              Aktuelle Produkte
             </h2>
 
             <div className="grid md:grid-cols-2 gap-12">
-              {/* Gefüllt */}
-              <div className="border-2 border-gray-900 p-10 bg-gray-50">
-                <div className="text-sm font-bold text-gray-600 uppercase tracking-widest mb-6">Option 01</div>
-                <h3 className="text-3xl font-bold mb-4 text-gray-900 uppercase" style={{ letterSpacing: '-0.5px' }}>
-                  Gefüllt
-                </h3>
-                <p className="text-gray-700 mb-10 leading-relaxed font-light">
-                  Komplett ausgestattet. Einfach auspacken und fertig. Keine Vorbereitung nötig.
-                </p>
-                <div className="bg-gray-900 text-white p-6 mb-8">
-                  <div className="text-4xl font-bold">24,90€</div>
-                  <div className="text-sm text-gray-400 mt-2 uppercase tracking-widest font-light">inkl. Versand</div>
-                </div>
-                <button className="w-full bg-gray-900 text-white py-4 font-bold hover:bg-gray-800 transition uppercase tracking-widest">
-                  Jetzt kaufen
-                </button>
-              </div>
+              {randomProducts.map((product) => (
+                <Link key={product.id} href={`/produkte/${product.id}`}>
+                  <div className="border-2 border-gray-300 p-8 bg-gray-50 hover:border-gray-900 transition cursor-pointer">
+                    {/* Product Image */}
+                    <div className="mb-6 bg-gray-100 rounded overflow-hidden h-48 flex items-center justify-center">
+                      {product.image && product.image !== '/images/products/default.jpg' ? (
+                        <Image
+                          src={product.image}
+                          alt={product.name}
+                          width={300}
+                          height={300}
+                          className="w-full h-full object-contain"
+                        />
+                      ) : (
+                        <div className="text-center text-gray-400">
+                          <div className="text-4xl mb-2">📦</div>
+                          <p className="text-sm">Produktbild</p>
+                        </div>
+                      )}
+                    </div>
 
-              {/* Leer */}
-              <div className="border-2 border-gray-400 p-10 bg-white">
-                <div className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-6">Option 02</div>
-                <h3 className="text-3xl font-bold mb-4 text-gray-900 uppercase" style={{ letterSpacing: '-0.5px' }}>
-                  Leerer Beutel
-                </h3>
-                <p className="text-gray-700 mb-10 leading-relaxed font-light">
-                  Für alle, die ihren eigenen Style reinbringen. Maximale Kontrolle.
-                </p>
-                <div className="bg-gray-100 text-gray-900 p-6 mb-8 border border-gray-300">
-                  <div className="text-4xl font-bold">12,90€</div>
-                  <div className="text-sm text-gray-600 mt-2 uppercase tracking-widest font-light">inkl. Versand</div>
-                </div>
-                <button className="w-full bg-white text-gray-900 border-2 border-gray-900 py-4 font-bold hover:bg-gray-100 transition uppercase tracking-widest">
-                  Jetzt kaufen
-                </button>
-              </div>
+                    <h3 className="text-2xl font-bold mb-4 text-gray-900 uppercase" style={{ letterSpacing: '-0.5px' }}>
+                      {product.name}
+                    </h3>
+
+                    <p className="text-gray-700 mb-6 leading-relaxed font-light">
+                      {product.description}
+                    </p>
+
+                    {/* Features */}
+                    <ul className="mb-8 space-y-2">
+                      {product.features.slice(0, 3).map((feature, idx) => (
+                        <li key={idx} className="text-sm text-gray-600 font-light">
+                          ✓ {feature}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Price */}
+                    <div className="bg-gray-900 text-white p-6 mb-6">
+                      <div className="text-3xl font-bold">{product.price.toFixed(2)}€</div>
+                      <div className="text-xs text-gray-400 mt-2 uppercase tracking-widest">
+                        inkl. Versand
+                      </div>
+                    </div>
+
+                    <button className="w-full bg-gray-900 text-white py-3 font-bold hover:bg-gray-800 transition uppercase tracking-widest text-sm">
+                      Jetzt ansehen
+                    </button>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
