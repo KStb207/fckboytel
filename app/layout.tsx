@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import CookieBanner from '@/components/CookieBanner';
 
 export const metadata: Metadata = {
   title: 'FckBoyTel - Der Kulturbeutel für Männer mit Plan',
@@ -29,6 +30,7 @@ export default function RootLayout({
       </head>
       <body style={{ fontFamily: "'Oswald', sans-serif" }}>
         {children}
+        <CookieBanner />
       </body>
     </html>
   );
