@@ -35,82 +35,122 @@ export default function ProduktDetailPage({
         </div>
 
         {/* Product Detail */}
-        <section className="py-16 px-6 bg-white">
+        <section className="py-12 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
-              {/* Image */}
-              <div className="bg-gray-100 border-2 border-gray-300 rounded overflow-hidden aspect-square flex items-center justify-center">
-                {product.image && product.image !== '/images/products/default.jpg' ? (
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    width={500}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    priority
-                  />
-                ) : (
-                  <div className="text-center text-gray-600">
-                    <div className="text-6xl mb-2">📦</div>
-                    <p className="text-sm">Produktbild</p>
-                  </div>
-                )}
+              {/* Left: Image + Description */}
+              <div>
+               {/* Image */}
+                <div className="bg-gray-100 rounded-lg overflow-hidden mb-8 flex items-center justify-center" style={{ height: '300px' }}>{product.image && product.image !== '/images/products/default.jpg' ? (
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      width={400}
+                      height={400}
+                      className="w-full h-full object-contain"
+                      priority
+                    />
+                  ) : (
+                    <div className="text-center text-gray-600">
+                      <div className="text-6xl mb-2">📦</div>
+                      <p className="text-sm">Produktbild</p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Description */}
+                <h3 className="font-bold text-sm uppercase tracking-widest text-gray-600 mb-3">
+                  Produktbeschreibung
+                </h3>
+                <p className="text-gray-700 leading-relaxed font-light text-sm">
+                  {product.description}
+                </p>
               </div>
 
-              {/* Details */}
+              {/* Right: Title, Facts, Price, Order Form */}
               <div>
-                <span className="text-xs font-bold text-gray-600 uppercase tracking-widest">
-                  {product.variant === 'filled' ? 'Option 01 - Gefüllt' : 'Option 02 - Leer'}
-                </span>
-
-                <h1 className="text-4xl font-bold mt-4 mb-6 text-gray-900 uppercase" style={{ letterSpacing: '-1px' }}>
+                <h1 className="text-4xl font-bold mb-8 text-gray-900 uppercase" style={{ letterSpacing: '-1px' }}>
                   {product.name}
                 </h1>
 
-                <p className="text-lg text-gray-700 mb-8 leading-relaxed font-light">
-                  {product.description}
-                </p>
-
                 {/* Features */}
-                <div className="mb-8">
-                  <h2 className="font-bold text-sm uppercase tracking-widest text-gray-600 mb-4">
-                    Was ist enthalten?
+                <div className="mb-8 p-6 rounded-lg" style={{ backgroundColor: '#2F4F4F' }}>
+                  <h2 className="font-bold text-sm uppercase tracking-widest text-white mb-4">
+                    Facts
                   </h2>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2">
                     {product.features.map((feature, idx) => (
                       <li key={idx} className="flex gap-3">
-                        <span className="text-gray-900 font-bold">✓</span>
-                        <span className="text-gray-700 font-light">{feature}</span>
+                        <span className="text-white font-bold text-xs">✓</span>
+                        <span className="text-white font-light text-xs">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 {/* Price */}
-                <div className="bg-gray-900 text-white p-8 mb-8">
-                  <div className="text-5xl font-bold">{product.price.toFixed(2)}€</div>
-                  <div className="text-sm text-gray-400 mt-3 uppercase tracking-widest font-light">
+                <div className="mb-8">
+                  <div className="text-3xl font-bold text-gray-900">{product.price.toFixed(2)}€</div>
+                  <div className="text-xs text-gray-600 mt-2 uppercase tracking-widest">
                     Inklusiv Versand (DE)
+                  </div>
+                  <div className="text-xs text-gray-500 mt-2">
+                    Lieferzeit: 5-6 Wochen
                   </div>
                 </div>
 
-                {/* CTA */}
-                <div className="flex gap-4">
-                  <button className="flex-1 bg-gray-900 text-white py-4 font-bold hover:bg-gray-800 transition uppercase tracking-widest">
-                    Jetzt kaufen
-                  </button>
-                  <button className="flex-1 border-2 border-gray-900 text-gray-900 py-4 font-bold hover:bg-gray-100 transition uppercase tracking-widest">
-                    In den Warenkorb
-                  </button>
-                </div>
+                {/* Order Form */}
+                <form method="POST" action="#" className="border-t border-gray-200 pt-8">
+                  <input type="hidden" name="product_id" value={product.id} />
+                  
+                  <div className="mb-4">
+                    <label htmlFor="email" className="block text-sm font-bold text-gray-900 mb-2">
+                      E-Mail Adresse
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      placeholder="deine@email.de"
+                      className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-gray-900"
+                    />
+                  </div>
 
-                {/* Back Link */}
-                <Link 
-                  href="/produkte"
-                  className="block text-center mt-6 text-sm text-gray-600 hover:text-gray-900 transition"
-                >
-                  ← Zurück zu alle Produkten
-                </Link>
+                  {/* Data Protection Checkbox */}
+                  <div className="mb-6">
+                    <label className="flex gap-3 text-sm text-gray-700 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        name="agree_data_protection"
+                        required
+                        className="mt-1 cursor-pointer"
+                      />
+                      <span>
+                        Ich akzeptiere die{' '}
+                        <Link href="/datenschutz" className="font-bold hover:underline">
+                          Datenschutzerklärung
+                        </Link>
+                      </span>
+                    </label>
+                  </div>
+
+                 {/* CTA */}
+                  <button
+                    type="submit"
+                    className="bg-gray-900 text-white px-8 py-2 font-bold hover:bg-gray-800 transition uppercase tracking-widest text-sm"
+                  >
+                    Jetzt bestellen
+                  </button>
+
+                  {/* Back Link */}
+                  <Link 
+                    href="/produkte"
+                    className="block text-center mt-6 text-sm text-gray-600 hover:text-gray-900 transition"
+                  >
+                    ← Zurück zu alle Produkten
+                  </Link>
+                </form>
               </div>
             </div>
           </div>

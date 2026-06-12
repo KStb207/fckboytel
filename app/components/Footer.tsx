@@ -53,7 +53,7 @@ export default function Footer() {
               </li>
               <li className="text-xs text-gray-600 mt-4">
                 FckBoyTel<br />
-                Arnsberg, Deutschland
+				Deutschland
               </li>
             </ul>
           </div>
