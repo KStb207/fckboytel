@@ -1,0 +1,20 @@
+[
+  {
+    "id": "filled",
+    "name": "FckBoyTel Gefüllt",
+    "description": "Komplett ausgestattet...",
+    "price": 24.90,
+    "image": "/images/products/filled.jpg",
+    "variant": "filled",
+    "features": ["Zahnbürste", "Deo", "Labello", "Feuerzeug", "Premium-Beutel"]
+  },
+  {
+    "id": "empty",
+    "name": "FckBoyTel Leerer Beutel",
+    "description": "Für alle, die ihren eigenen Style...",
+    "price": 12.90,
+    "image": "/images/products/empty.jpg",
+    "variant": "empty",
+    "features": ["Premium Anthrazit Beutel", "Hochwertig verarbeitet"]
+  }
+]
