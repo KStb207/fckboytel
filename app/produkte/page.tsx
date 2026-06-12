@@ -19,7 +19,7 @@ export default function ProduktePage() {
               Unsere Produkte
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto font-light">
-              Alles was Männer mit Plan brauchen. Hochwertig. Zeitlos. Humorvoll.
+              Alles was Männer mit Plan brauchen. Hochwertig. Zeitlos. Abgezockt.
             </p>
           </div>
         </section>
