@@ -17,7 +17,7 @@ export default function Header() {
         </Link>
 
         {/* Navigation */}
-        <nav className="hidden md:flex gap-8">
+        <nav className="flex gap-8">
           <Link href="/produkte" className="text-white font-bold uppercase tracking-widest text-sm hover:opacity-80 transition">
             Produkte
           </Link>
@@ -28,11 +28,6 @@ export default function Header() {
             Über uns
           </Link>
         </nav>
-
-        {/* Mobile Menu Button */}
-        <button className="md:hidden text-white text-2xl">
-          ☰
-        </button>
       </div>
     </header>
   );
