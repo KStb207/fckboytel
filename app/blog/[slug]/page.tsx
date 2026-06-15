@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { getBlogPost, getAllBlogPosts } from '@/lib/blog';
+import { getBlogPost } from '@/lib/blog';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
