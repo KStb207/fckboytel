@@ -1,0 +1,78 @@
+# Text 			Große Überschrift
+## Text 		Mittlere Überschrift
+### Text		Kleine Überschrift
+**Text**		Fett
+*Text*			Kursiv
+-Text 			Listenpunkt
+[Link](url)		Klickbarer Link
+![Alt](bild.jpg)	Bild einbinden
+`code`			Inline-Code
+~~Durchgestrichen~~ 	Text
+
+---
+title: Mein erster FckBoyTel Post
+date: 2024-06-12
+author: Kim
+image: /blog/images/post-1.jpg
+excerpt: Das ist mein erster Blog-Post!
+---
+
+# Willkommen beim FckBoyTel Blog!
+
+Das ist eine normale Absatz. Du kannst einfach schreiben wie in Word.
+
+## Überschrift 2
+
+### Überschrift 3
+
+**Fett Text** und *kursiver Text* funktioniert auch.
+
+---
+
+## Listen
+
+Ungeordnete Liste:
+- Punkt 1
+- Punkt 2
+- Punkt 3
+
+Geordnete Liste:
+1. Erste
+2. Zweite
+3. Dritte
+
+---
+
+## Links und Bilder
+
+[Klick mich](https://fckboytel.de)
+
+![Produktbild](/blog/images/produkt.jpg)
+
+---
+
+## Code
+
+Inline Code: `const x = 5;`
+
+Code-Block:
+\`\`\`javascript
+function hallo() {
+  console.log('Hallo FckBoyTel!');
+}
+\`\`\`
+
+---
+
+## Zitate
+
+> Das ist ein Zitat.
+> Kann über mehrere Zeilen gehen.
+
+---
+
+## Besonderheiten
+
+~~Durchgestrichen~~ Text
+
+> **Wichtig:** Du kannst auch HTML mischen!
