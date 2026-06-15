@@ -18,25 +18,25 @@ export default function UeberUnsPage() {
     {
       name: 'Tim Bö.',
       role: 'Co-Founder (Coming Soon)',
-      bio: 'Zitat: Auf einem Festival kam ich dem Gründer den entscheindenen Impuls. Ich möchte mit meiner Expertise zum Wachstum beitragen.',
+      bio: 'Zitat: Auf einem Festival gab ich dem Gründer den entscheindenen Impuls. Ich möchte mit meiner Expertise zum Wachstum beitragen.',
       image: '/team/placeholder.jpg',
     },
     {
       name: 'Lina',
       role: 'Operations (Coming Soon)',
-      bio: 'Powerfrau - Sie glaubt an unser Ziel wieder mehr Männlichkeit zu verbreiten, bei Fragen wird sie dir wohl helfen und dich solange bequatschen, bis du keon Bock mehr hast.',
+      bio: 'Powerfrau - Sie glaubt an unser Ziel wieder mehr Männlichkeit zu verbreiten, bei Fragen wird sie dir wohl helfen und dich solange bequatschen, bis du kein Bock mehr hast.',
       image: '/team/placeholder.jpg',
     },
     {
       name: 'Tom',
       role: 'Logistik',
-      bio: 'Er ist nicht überzeugt vom Produkt, brauchte ne`n Job, deshalb haben wir den ins Lager gesteckt. Irgendwer muss euren Kram verschicken. Wenn`s schrott ankommt ist er schuld.',
+      bio: 'Er ist nicht überzeugt vom Produkt, brauchte ne`n Job, deshalb haben wir den ins Lager gesteckt. Irgendwer muss euren Kram verschicken. Wenn`s schrott ankommt, ist er schuld.',
       image: '/team/placeholder.jpg',
     },
     {
       name: 'Team Member',
       role: 'Operations (Coming Soon)',
-      bio: 'Wir suchen untalentierte Menschen, die an unserer Vision glauben. Wenn du nix kannst, bist du hier richtig, wir finden deinen Platz. #PlaceToBe',
+      bio: 'Wir suchen untalentierte Menschen, die an unsere Vision glauben. Wenn du nix kannst, bist du hier richtig, wir finden deinen Platz. #PlaceToBe',
       image: '/team/placeholder.jpg',
     },
   ];
@@ -212,7 +212,7 @@ export default function UeberUnsPage() {
               Du willst Teil des Teams sein?
             </h2>
             <p className="text-gray-700 mb-8 font-light text-lg">
-              Wir suchen talentierte Menschen, die an unserer Vision glauben. 
+              Wir suchen untalentierte Menschen, die wir für unsere Profitgier ausbeuten können.
               Schreib uns eine Nachricht!
             </p>
             <a href="mailto:info@fckboytel.de">
